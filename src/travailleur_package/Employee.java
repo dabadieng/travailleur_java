@@ -38,6 +38,10 @@ public abstract class Employee {
 	protected double getSalaire() {
 		return salaire; 
 	}
+	
+	public Employee ajouter(Employee salarie) {
+		return salarie;
+	}
 
 	@Override
 	public String toString() {
