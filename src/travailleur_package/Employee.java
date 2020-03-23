@@ -1,3 +1,4 @@
+
 package travailleur_package;
 
 public abstract class Employee {
@@ -5,19 +6,17 @@ public abstract class Employee {
 	protected int age;
 	protected double salaire;
 
-	public Employee(String nom, String prenom, int age) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-
-		// controle de l'âge
-		if (age < 0)
-			this.age = 0;
-		else
-			this.age = age;
-		
-		//calcul du salaire 
-		this.salaire = this.calculSalaire();
+	public Employee(String nom, String prenom, int age) 
+		throws AgeException 
+		{ 
+			// controle de l'âge
+			if (age < 0)
+				throw new AgeException();
+			else {
+				this.nom = nom;
+				this.prenom = prenom;
+				this.age = age;
+			}
 
 	}
 
@@ -39,10 +38,6 @@ public abstract class Employee {
 		return salaire; 
 	}
 	
-	public Employee ajouter(Employee salarie) {
-		return salarie;
-	}
-
 	@Override
 	public String toString() {
 		return getClass() + " [nom=" + nom + ", prenom=" + prenom + "]";
